@@ -7,19 +7,61 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var mapView: MKMapView!
+
+  var userPinView: MKAnnotationView!
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+   
+    mapViewSetUp()
+    locationServiceSetUp()
+  
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  
+  //MARK: - MapView SetUp
+  private func mapViewSetUp () {
+    mapView.showsUserLocation = true
+    mapView.showsScale = true
+    mapView.showsTraffic = true
+    mapView.showsPointsOfInterest = true
+    mapView.delegate = self
   }
-
+  
+  //MARK: - location Service SetUp
+  private func locationServiceSetUp() {
+    CoreLocationService.sharedInstance.mapView = mapView
+    CoreLocationService.sharedInstance.authorizeUser()
+    CoreLocationService.sharedInstance.updateUserLocation()
+  }
 
 }
 
+
+//MARK: - MKMapView Delegate
+extension ViewController: MKMapViewDelegate {
+  
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+    //MARK: - Set Custom Image to the User Current Location
+    if annotation is MKUserLocation {
+      
+      let pin = mapView.view(for: annotation) ?? MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+      pin.image = #imageLiteral(resourceName: "userImag")
+      pin.layer.cornerRadius = pin.frame.size.width/2
+      pin.clipsToBounds = true
+      userPinView = pin
+      return pin
+    }
+    return nil
+  }
+  
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    print("Pin Annotation Tap: \(String(describing: view.annotation?.title ?? "No Title"))")
+  }
+  
+}

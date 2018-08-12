@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464F868921203068002F973F /* CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F868821203068002F973F /* CoreLocationService.swift */; };
 		46BC6EA921202D30008972C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC6EA821202D30008972C9 /* AppDelegate.swift */; };
 		46BC6EAB21202D30008972C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC6EAA21202D30008972C9 /* ViewController.swift */; };
 		46BC6EAE21202D30008972C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46BC6EAC21202D30008972C9 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464F868821203068002F973F /* CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationService.swift; sourceTree = "<group>"; };
 		46BC6EA521202D30008972C9 /* MapView-UpdateCurrentLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MapView-UpdateCurrentLocation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BC6EA821202D30008972C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46BC6EAA21202D30008972C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				46BC6EA821202D30008972C9 /* AppDelegate.swift */,
 				46BC6EAA21202D30008972C9 /* ViewController.swift */,
+				464F868821203068002F973F /* CoreLocationService.swift */,
 				46BC6EAC21202D30008972C9 /* Main.storyboard */,
 				46BC6EAF21202D31008972C9 /* Assets.xcassets */,
 				46BC6EB121202D31008972C9 /* LaunchScreen.storyboard */,
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464F868921203068002F973F /* CoreLocationService.swift in Sources */,
 				46BC6EAB21202D30008972C9 /* ViewController.swift in Sources */,
 				46BC6EA921202D30008972C9 /* AppDelegate.swift in Sources */,
 			);
@@ -280,14 +284,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 88NHNRLKC2;
 				INFOPLIST_FILE = "MapView-UpdateCurrentLocation/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com..MapView-UpdateCurrentLocation";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.meddey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "58710df5-cd44-45fc-8533-bd762d373119";
+				PROVISIONING_PROFILE_SPECIFIER = "Meddey Development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,14 +305,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 88NHNRLKC2;
 				INFOPLIST_FILE = "MapView-UpdateCurrentLocation/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com..MapView-UpdateCurrentLocation";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alok.meddey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "58710df5-cd44-45fc-8533-bd762d373119";
+				PROVISIONING_PROFILE_SPECIFIER = "Meddey Development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
