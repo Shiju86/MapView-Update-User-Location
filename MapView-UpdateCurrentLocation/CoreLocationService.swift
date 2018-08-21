@@ -26,9 +26,12 @@ final class CoreLocationService: NSObject {
       
       if CLLocationManager.authorizationStatus() == .restricted || CLLocationManager.authorizationStatus() == .denied || CLLocationManager.authorizationStatus() == .notDetermined {
         
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         
       }
+      // Update user current location InBackground
+      locationManager.allowsBackgroundLocationUpdates = true
+      locationManager.pausesLocationUpdatesAutomatically = false
       
       locationManager.desiredAccuracy = kCLLocationAccuracyBest //OR 1.0
       locationManager.delegate = self
@@ -50,7 +53,17 @@ extension CoreLocationService: CLLocationManagerDelegate {
     
     let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
     self.mapView.setRegion(region, animated: true)
+    self.mapView.userTrackingMode = .followWithHeading
     
+    print("Latitude: \(locations[0].coordinate.latitude) -- Longitude: \(locations[0].coordinate.longitude)")
+  }
+  
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    if status == .authorizedAlways {
+      // you're good to go!
+      print("Status")
+
+    }
   }
   
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
